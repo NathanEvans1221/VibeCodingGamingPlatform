@@ -16,7 +16,7 @@ Google Antigravity 使用 Gemini 3 Pro (High) 模式
 1. 分析結果: 已建立 Planning.md，包含詳細的組件結構與功能規劃。
 2. 專案內容: 已在 vue-demo 資料夾中建立 Vue 3 + Vite 專案，並實作了所有要求的組件 (HeaderNav, SideMenu, CategoryTabs, GameList, GameCard, FooterInfo)。
 3. 數據: 遊戲名稱已從目標網站提取並存入 src/data/games.json。
-4. 注意: 由於目標網站的圖片資源無法自動抓取（可能是動態載入或防爬蟲機制），目前使用 Placeholder 圖片代替。您可以在 games.json 中替換為真實連結。
+4. 遊戲資料: `vue-demo/src/data/games.json` 已保存遊戲名稱、分類與遠端圖示網址；圖示載入失敗時會顯示本地備援圖。
 5. 執行: 請進入 vue-demo 資料夾執行 npm install 與 npm run dev 即可預覽。
 
 ## 圖示自動抓取腳本
@@ -35,7 +35,7 @@ npm run fetch-icons
 node scripts/fetch-icons.js
 ```
 
-執行完畢後重新啟動開發伺服器 `npm run dev`，即可看到正確圖示。若圖示載入失敗，`GameCard.vue` 會使用本地 `placeholder.png` 作為備援。
+執行完畢後重新啟動開發伺服器 `npm run dev`，即可看到更新後的圖示。若遠端圖示載入失敗，`GameCard.vue` 會顯示 `public/placeholder.svg`。
 ## 相關文件說明
 
 - **Planning.md**  

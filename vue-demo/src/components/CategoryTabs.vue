@@ -1,9 +1,11 @@
 <template>
-  <div class="category-tabs">
+  <div class="category-tabs" role="group" aria-label="遊戲分類">
     <button 
       v-for="tab in tabs" 
       :key="tab.id"
+      type="button"
       :class="{ active: modelValue === tab.id }"
+      :aria-pressed="modelValue === tab.id"
       @click="$emit('update:modelValue', tab.id)"
     >
       {{ tab.label }}
@@ -43,7 +45,7 @@ button {
   color: #ccc;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 button:hover {

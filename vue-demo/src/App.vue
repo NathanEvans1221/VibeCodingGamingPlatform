@@ -49,20 +49,6 @@ const filteredGames = computed(() => {
 })
 </script>
 
-<style>
-/* Global Reset */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #121212;
-  color: #fff;
-}
-
-* {
-  box-sizing: border-box;
-}
-</style>
-
 <style scoped>
 .app-container {
   display: flex;

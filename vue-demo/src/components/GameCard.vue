@@ -1,7 +1,13 @@
 <template>
   <div class="game-card">
     <div class="icon-wrapper">
-      <img :src="game.icon" :alt="game.name" loading="lazy">
+      <img
+        :src="iconSrc"
+        :alt="game.name"
+        loading="lazy"
+        decoding="async"
+        @error="useFallbackIcon"
+      >
     </div>
     <div class="info">
       <h3>{{ game.name }}</h3>
@@ -10,12 +16,23 @@
 </template>
 
 <script setup>
-defineProps({
+import { ref } from 'vue'
+
+const props = defineProps({
   game: {
     type: Object,
     required: true
   }
 })
+
+const fallbackIcon = '/placeholder.svg'
+const iconSrc = ref(props.game.icon)
+
+function useFallbackIcon() {
+  if (iconSrc.value === fallbackIcon) return
+
+  iconSrc.value = fallbackIcon
+}
 </script>
 
 <style scoped>
@@ -23,14 +40,12 @@ defineProps({
   background-color: #2a2a2a;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+  transition: box-shadow 0.2s;
   text-align: center;
   padding-bottom: 10px;
 }
 
 .game-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
@@ -45,11 +60,6 @@ defineProps({
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.game-card:hover .icon-wrapper img {
-  transform: scale(1.1);
 }
 
 .info h3 {

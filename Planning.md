@@ -6,7 +6,7 @@
 
 ## 2. 技術棧
 - **核心框架**: Vue 3 (使用 Vite 建構)
-- **語言**: JavaScript (ES6+)
+- **語言**: Vue Single-File Components 使用 JavaScript；入口使用 TypeScript。
 - **樣式**: CSS (Vanilla 或 Scoped CSS)
 - **路由**: Vue Router (視需要，目前單頁結構可能不需要複雜路由，但可預留)
 
@@ -23,7 +23,7 @@ src/
 |   |-- GameCard.vue         # 單一遊戲卡片
 |   |-- FooterInfo.vue       # 頁腳資訊
 |-- App.vue                  # 主入口
-|-- main.js                  # 程式入口
+|-- main.ts                  # 程式入口
 |-- assets/                  # 靜態資源 (圖片、樣式)
 ```
 
@@ -36,14 +36,14 @@ src/
 ### 4.2 HeaderNav.vue
 - 展示 Logo。
 - 頂部導航連結 (遊戲介紹, 下載, 儲值, 客服)。
-- 登入/註冊按鈕佔位。
+- 目前不提供登入/註冊互動。
 
 ### 4.3 SideMenu.vue
-- 側邊欄連結 (遊戲教學, 活動區, 公告)。
-- 可能在移動端會隱藏或變為漢堡選單。
+- 展示快速入口文字 (遊戲教學, 活動區, 公告)；目前沒有對應頁面或導覽路由。
+- 桌面版顯示側欄，移動版隱藏。
 
 ### 4.4 CategoryTabs.vue
-- 顯示分類：全部, SLOT, 國際, 特殊, 棋牌等。
+- 顯示分類：全部、國際區、SLOT、棋牌、捕魚、特殊、彩金。
 - 點擊切換 `activeCategory` 狀態，觸發 `GameList` 更新。
 
 ### 4.5 GameList.vue
@@ -53,7 +53,7 @@ src/
 
 ### 4.6 GameCard.vue
 - 接收單個遊戲數據 (Object)。
-- 顯示：Icon, 標題, 類別。
+- 顯示：Icon 與標題；遠端圖片載入失敗時顯示 `public/placeholder.svg`。
 - 懸停效果 (Hover Effect)。
 
 ### 4.7 FooterInfo.vue

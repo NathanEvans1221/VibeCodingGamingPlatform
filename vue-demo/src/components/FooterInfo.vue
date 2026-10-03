@@ -1,15 +1,15 @@
 <template>
   <footer class="footer-info">
     <div class="footer-content">
-      <p>&copy; 2025 Online. All Rights Reserved.</p>
-      <div class="links">
-        <a href="#">服務條款</a> | 
-        <a href="#">隱私權政策</a> | 
-        <a href="#">聯絡我們</a>
-      </div>
+      <p>&copy; {{ currentYear }} Online. All Rights Reserved.</p>
+      <p class="links">服務條款 · 隱私權政策 · 聯絡我們</p>
     </div>
   </footer>
 </template>
+
+<script setup>
+const currentYear = new Date().getFullYear()
+</script>
 
 <style scoped>
 .footer-info {
@@ -26,13 +26,7 @@
   margin: 0 auto;
 }
 
-.links a {
+.links {
   color: #888;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.links a:hover {
-  color: #ccc;
 }
 </style>

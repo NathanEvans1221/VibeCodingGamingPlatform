@@ -3,18 +3,14 @@
     <div class="logo">
       <h1>Online</h1>
     </div>
-    <nav class="main-menu">
+    <nav class="main-menu" aria-label="主要導覽">
       <ul>
-        <li><a href="#">遊戲介紹</a></li>
-        <li><a href="#">下載專區</a></li>
-        <li><a href="#">儲值中心</a></li>
-        <li><a href="#">客服中心</a></li>
+        <li aria-current="page">遊戲介紹</li>
+        <li>下載專區</li>
+        <li>儲值中心</li>
+        <li>客服中心</li>
       </ul>
     </nav>
-    <div class="user-actions">
-      <button class="login-btn">會員登入</button>
-      <button class="register-btn">立即註冊</button>
-    </div>
   </header>
 </template>
 
@@ -48,33 +44,30 @@
   padding: 0;
 }
 
-.main-menu a {
+.main-menu li {
+  white-space: nowrap;
   color: #ddd;
-  text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.main-menu a:hover {
+.main-menu li[aria-current="page"] {
   color: #ffd700;
 }
 
-.user-actions button {
-  margin-left: 10px;
-  padding: 5px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
+@media (max-width: 767px) {
+  .header-nav {
+    justify-content: flex-start;
+    gap: 16px;
+    overflow-x: auto;
+  }
 
-.login-btn {
-  background-color: #333;
-  color: #fff;
-}
+  .main-menu {
+    overflow-x: auto;
+  }
 
-.register-btn {
-  background-color: #ffd700;
-  color: #000;
+  .main-menu ul {
+    gap: 12px;
+  }
 }
 </style>
